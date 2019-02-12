@@ -1,0 +1,29 @@
+// Trabajo1-LabEstructura.cpp : Defines the entry point for the console application.
+
+//libreria
+#include "stdafx.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "iostream"
+#include "conio.h"
+
+//prototipos: la cabeza de las funciones
+
+using namespace std;
+//programa principal
+void main()
+
+{//tipo de dato
+		float p,pf;
+		do{
+			cout<<" Ingresar el precio: "<<endl;
+			cin>>p;
+		}while(p<0);
+
+		pf= p*(0.13+1);
+		cout<<"El precio final es: "<<pf <<endl;
+
+		getch();
+
+}
+
