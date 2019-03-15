@@ -1,0 +1,77 @@
+#pragma once
+#include <string>
+
+using namespace std;
+class Ejercicio13
+{
+private: 
+		string cad;
+		int minuscula;
+public:
+	Ejercicio13(void);
+	~Ejercicio13(void);
+
+	void leerCadena();
+	void contarMinuscula();
+	int getMinusculas();
+};
+
+#include "StdAfx.h"
+#include "Ejercicio13.h"
+#include <string>
+#include <iostream>
+using namespace std;
+
+Ejercicio13::Ejercicio13(void)
+{
+}
+
+
+Ejercicio13::~Ejercicio13(void)
+{
+}
+
+void Ejercicio13::leerCadena(){
+	cout<<"Ingrese una cadena: ";
+	getline(cin,cad); //leer
+}
+
+void Ejercicio13::contarMinuscula(){
+
+		int tam= cad.length();
+		int cont=0;
+
+	for(int i =0; i<tam; i++)
+	{
+		if (cad[i]>= ' a' && cad[i] <= ' z'){
+		cont++;
+		}
+	}
+	minuscula= cont;
+}
+
+int Ejercicio13::getMinusculas(){
+
+	return minuscula;
+}
+// Ejercisio.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "Ejercicio13.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void main()
+{
+	Ejercicio13 var;
+	var.leerCadena();
+	var.contarMinuscula();
+
+	int respuesta= var.getMinusculas();
+	cout<< "Hay "<<respuesta<<" minusculas"<<endl;
+
+	getch();
+
+}
