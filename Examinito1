@@ -1,0 +1,49 @@
+#pragma once
+class Vector
+{private:
+float radio, altura;
+public:
+	Vector(void);
+	~Vector(void);
+	float area();
+};
+
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+float Vector::area(){
+	float aux;
+	cout<<"Ingresar el radio:"<<endl;
+	cin>>radio;
+	cout<<"Ingresar la altura:"<<endl;
+	cin>>altura;
+	aux= 2*3.14*radio*(radio*altura);
+	return (aux);
+}
+
+// Laboratorio.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "Vector.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void main(){
+	Vector a1;
+	cout<<"El area es:"<<a1.area()<<endl;
+	getch();
+}
