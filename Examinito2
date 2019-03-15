@@ -1,0 +1,53 @@
+#pragma once
+class Vector
+{private:
+    int n;
+public:
+	Vector(void);
+	~Vector(void);
+	void Pares();
+	
+};
+
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::Pares(){
+	int num,cont=0;
+	cout<<"Ingresar el numero:"<<endl;
+	cin>>n;
+	num=n;
+
+		if((num/10) %2==0)
+		{cont++;
+			cout<<"Hay pares"<<endl;
+		}
+	}
+
+// Laboratorio.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "Vector.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void main(){
+	Vector a1;
+	a1.Pares();
+	getch();
+}
+
