@@ -1,0 +1,61 @@
+#pragma once
+class Shape
+{
+protected:
+	int base;
+	int altura;
+public:
+	Shape();
+	~Shape(void);
+	void obtenerBase(int b);
+	void obtenerAltura(int h);
+};
+#include "StdAfx.h"
+#include "Shape.h"
+
+
+Shape::Shape()
+{
+}
+
+Shape::~Shape(void)
+{
+}
+
+void Shape::obtenerBase(int b){
+	base=b;
+
+}
+void Shape::obtenerAltura(int h){
+	altura=h;
+}
+#pragma once
+#include "Shape.h"
+class Rectangulo: public Shape
+{
+public:
+	Rectangulo(void);
+	~Rectangulo(void);
+	int Area(){
+		return (base*altura);
+	}
+};
+#include "stdafx.h"
+#include <iostream>
+#include "Shape.h"
+#include "conio.h"
+#include "Rectangulo.h"
+using namespace std;
+void main(){
+	int ba,ha;
+	cout<<"Ingresar base: ";
+	cin>>ba;
+	cout<<"Ingresar altura: ";
+	cin>>ha;
+	Rectangulo rec;
+	rec.obtenerAltura(ha);
+	rec.obtenerBase(ba);
+	cout<<"El area del paralelogramo es: "<<rec.Area();
+
+	getch();
+}
