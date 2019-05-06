@@ -1,0 +1,165 @@
+//Cuenta.h
+
+#pragma once
+#include <string>
+using namespace std;
+class Cuenta
+{
+protected:
+	double tipodeinteres;
+	double saldo;
+	string cuenta;
+	string nombre;
+public:
+	Cuenta(void);
+	Cuenta(string nom, string cue, double sal, double tipo );
+	~Cuenta(void);
+	void asignarnombre(string nom);
+	void asignarcuenta(string cue);
+	string obtenernombre();
+	string obtenercuenta();
+	double obtenertipodeinteres();
+	double estado();
+	void asignartipodeinteres(double tipo);
+	void reintegro(double cantidad);
+	void ingreso(double cantidad);
+};
+
+//Cuenta.cpp
+
+#include "StdAfx.h"
+#include "Cuenta.h"
+#include <iostream>
+
+using namespace std;
+
+Cuenta::Cuenta(void)
+{
+	saldo=0;
+	tipodeinteres=0;
+}
+Cuenta::Cuenta(string nom, string cue, double sal, double tipo ){
+	asignarnombre(nom);
+	asignarcuenta(cue);
+	saldo=sal;
+	tipodeinteres=tipo;
+	}
+Cuenta::~Cuenta(void)
+{
+}
+
+void Cuenta::asignarnombre(string nom)
+{
+	if (nom.length()==0){
+		cout<<"Error: cadena vacia"<<endl;
+		return;
+	}
+	nombre=nom;
+}
+void Cuenta::asignarcuenta(string cue)
+{
+	cuenta=cue;
+
+}
+string Cuenta::obtenernombre()
+{
+	return nombre;
+}
+string Cuenta::obtenercuenta()
+{
+	return cuenta;
+}
+double Cuenta::obtenertipodeinteres()
+{
+	return tipodeinteres;
+}
+double Cuenta::estado()
+{
+	return saldo;
+}
+void Cuenta::asignartipodeinteres(double tipo)
+{
+	tipodeinteres=tipo;
+}
+void Cuenta::reintegro(double cantidad)
+{
+	if(saldo-cantidad< 0)
+	{cout<<"Error: no dispone de saldo"<<endl;
+	 return;
+	}
+	saldo = saldo-cantidad;
+}
+void Cuenta::ingreso(double cantidad)
+{  if(cantidad<0){
+	cout<< "error cantidad negativa";
+	}
+    saldo= saldo+cantidad;
+}
+
+//CuentaCorriente.h
+
+#pragma once
+#include "Cuenta.h"
+class CuentaCorriente :public Cuenta
+{
+private:
+
+public:
+	CuentaCorriente(void);
+	~CuentaCorriente(void);
+	void RetirarSaldo(int monto);
+};
+
+//CuentaCorriente.cpp
+
+
+#include "StdAfx.h"
+#include "CuentaCorriente.h"
+
+
+CuentaCorriente::CuentaCorriente(void)
+{
+}
+
+
+CuentaCorriente::~CuentaCorriente(void)
+{
+}
+
+void CuentaCorriente::RetirarSaldo(int monto)
+{
+	saldo=saldo-monto;
+}
+
+
+//CuentaAhorro.h
+
+#pragma once
+#include <string>
+using namespace std;
+class CuentaCajadeAhorro
+{
+private: 
+	double cuotamantenimiento;
+public:
+	CuentaCajadeAhorro(string nom, string cue, double sal, double tipo, double mant);
+	~CuentaCajadeAhorro(void);
+	void asignarnombre ( string nom);
+	void asignarcuenta (string cue);
+	void asignarcuotamant (double mant);
+};
+
+//CuentaAhorro.cpp
+
+#include "StdAfx.h"
+#include "CuentaCajadeAhorro.h"
+
+
+CuentaCajadeAhorro::CuentaCajadeAhorro(void)
+{
+}
+
+
+CuentaCajadeAhorro::~CuentaCajadeAhorro(void)
+{
+}
